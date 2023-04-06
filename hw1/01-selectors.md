@@ -5,3 +5,5 @@
 3. #fancy
 4. plate apple
 5. #fancy pickle
+6. .small
+7. orange.small
