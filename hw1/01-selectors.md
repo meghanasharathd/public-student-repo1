@@ -7,5 +7,8 @@
 5. #fancy pickle
 6. .small
 7. orange.small
-8.
-9.
+8. bento orange.small
+9. plate, bento
+10. *
+11. #fancy orange, pickle, plate apple
+12. 
