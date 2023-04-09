@@ -1,5 +1,6 @@
 const input = document.querySelector('input');
 const isPalendromeTag = document.querySelector('#IsPalendrome');
+// regular expression: passes neg/pos integers and decimals.
 const isOnlyNumbersExp = new RegExp(/^(-*([0-9]+.?)[0-9]*)$/);
 
 //  Method: OnUserInput
@@ -25,21 +26,21 @@ const OnUserInput = () => {
         isPalendromeTag.style.color = 'green';
       } else {
         isPalendromeTag.textContent = 'Not a Palendrome. Try Again.';
-        isPalendromeTag.style.color = 'red';
+        isPalendromeTag.style.color = 'darkred';
       }
       // handle negative values
     } else if (input.value < 0) {
       isPalendromeTag.textContent = 'Number must be greater than 0. Try Again.';
-      isPalendromeTag.style.color = 'red';
+      isPalendromeTag.style.color = 'darkred';
       // handle unforseen errors
     } else {
       isPalendromeTag.textContent = 'Error Processing Input';
-      isPalendromeTag.style.color = 'red';
+      isPalendromeTag.style.color = 'darkred';
     }
     // handle non numerics,
   } else {
     isPalendromeTag.textContent = 'Input Must Be Numbers. Try Again';
-    isPalendromeTag.style.color = 'red';
+    isPalendromeTag.style.color = 'darkred';
   }
 };
 
