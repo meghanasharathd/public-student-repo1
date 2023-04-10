@@ -21,14 +21,14 @@ const result = document.getElementById('result');
 
 function handleEvent() {
   if (!isPositiveNumber(inputBox.value)) {
-    result.style.setProperty('color', 'red');
-    result.innerHTML = 'Input must be a positive number.';
+    result.style.setProperty('color', 'darkred');
+    result.innerHTML = '<b>Input must be a positive number.</b>';
   } else if (!isPalindrome(inputBox.value)) {
-    result.style.setProperty('color', 'red');
-    result.innerHTML = 'No. Try again';
+    result.style.setProperty('color', 'darkred');
+    result.innerHTML = '<b>No. Try again</b>';
   } else {
-    result.style.setProperty('color', 'green');
-    result.innerHTML = 'Yes. This is a palindrome!';
+    result.style.setProperty('color', 'darkgreen');
+    result.innerHTML = '<b>Yes. This is a palindrome!</b>';
   }
 }
 
