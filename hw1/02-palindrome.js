@@ -1,5 +1,5 @@
 function isPositiveNumber(str) {
-  if ((!Number.isNaN(str) && Number(str) > 0)) {
+  if (!Number.isNaN(str) && Number(str) > 0) {
     return true;
   }
   return false;
@@ -21,15 +21,15 @@ const result = document.getElementById('result');
 
 function handleEvent() {
   if (!isPositiveNumber(inputBox.value)) {
+    result.style.setProperty('color', 'red');
     result.innerHTML = 'Input must be a positive number.';
   } else if (!isPalindrome(inputBox.value)) {
+    result.style.setProperty('color', 'red');
     result.innerHTML = 'No. Try again';
   } else {
+    result.style.setProperty('color', 'green');
     result.innerHTML = 'Yes. This is a palindrome!';
   }
 }
 
-inputBox.addEventListener(
-  'input',
-  handleEvent,
-);
+inputBox.addEventListener('input', handleEvent);
