@@ -3,37 +3,27 @@ const elem = document.querySelector('input');
 elem.addEventListener('input', handleInput);
 
 function handleInput(event) {
-  let input = event.target.value;
-  let resultDiv = document.getElementById('result');
-  let inputCheck = parseInt(input);
+  const input = event.target.value;
+  const resultDiv = document.getElementById('result');
 
   if (input.length === 0) {
     resultDiv.textContent = '';
+  } else if (isNaN(input)) {
+    resultDiv.textContent = 'Invalid number. Contains non-numeric characters.';
+    resultDiv.classList.remove('text-success');
+    resultDiv.classList.add('text-danger');
+  } else if (parseInt(input) < 0) {
+    resultDiv.textContent = 'Please enter a positive number.';
+    resultDiv.classList.remove('text-success');
+    resultDiv.classList.add('text-danger');
+  } else if (isPalindrome(input)) {
+    resultDiv.textContent = 'Yes. This is a palindrome!';
+    resultDiv.classList.remove('text-danger');
+    resultDiv.classList.add('text-success');
   } else {
-    // todo: fix this check
-    // maybe add these messages to text div
-    if (isNaN(inputCheck)) {
-      console.log('Not a number.');
-    } else if (inputCheck < 0) {
-      console.log('Not a positive number.');
-    }
-    console.log(`${input} is a palindrome.`);
-
-    if (isPalindrome(input)) {
-      // Used docs to find out how to programatically remove/add bootstrap classes
-      // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-      if (resultDiv.classList.contains('text-danger')) {
-        resultDiv.classList.remove('text-danger');
-      }
-      resultDiv.textContent = 'Yes. This is a palindrome!';
-      resultDiv.classList.add('text-success');
-    } else {
-      if (resultDiv.classList.contains('text-success')) {
-        resultDiv.classList.remove('text-success');
-      }
-      resultDiv.textContent = 'No. Try again.';
-      resultDiv.classList.add('text-danger');
-    }
+    resultDiv.textContent = 'No. Try again.';
+    resultDiv.classList.remove('text-success');
+    resultDiv.classList.add('text-danger');
   }
 }
 
