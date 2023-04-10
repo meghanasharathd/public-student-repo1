@@ -20,10 +20,12 @@ const inputBox = document.querySelector('input');
 const result = document.getElementById('result');
 
 function handleEvent() {
-  if (isPositiveNumber(inputBox.value) && isPalindrome(inputBox.value)) {
-    result.innerHTML = 'Yes. This is a palindrome!';
-  } else {
+  if (!isPositiveNumber(inputBox.value)) {
+    result.innerHTML = 'Input must be a positive number.';
+  } else if (!isPalindrome(inputBox.value)) {
     result.innerHTML = 'No. Try again';
+  } else {
+    result.innerHTML = 'Yes. This is a palindrome!';
   }
 }
 
