@@ -6,12 +6,15 @@ function handleInput(event) {
   const input = event.target.value;
   const resultDiv = document.getElementById('result');
 
+  // isNaN doesn't work here on Firefox if incorrect chars are entered
+  // this approach was suggested by Prof. Paun
   if (input.length === 0) {
-    resultDiv.textContent = '';
-  } else if (isNaN(input)) {
-    resultDiv.textContent = 'Invalid number. Contains non-numeric characters.';
+    resultDiv.textContent =
+      'Invalid number. Contains non-numeric characters.';
     resultDiv.classList.remove('text-success');
     resultDiv.classList.add('text-danger');
+  } else if (isNaN(input)) {
+    console.log(input);
   } else if (parseInt(input) < 0) {
     resultDiv.textContent = 'Please enter a positive number.';
     resultDiv.classList.remove('text-success');
