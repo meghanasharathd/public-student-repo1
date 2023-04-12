@@ -8,7 +8,7 @@ output.appendChild(newP);
 
 function handleInput(event) {
   newP.textContent = ' ';
-  let inputNumber = parseInt(event.target.value);
+  let inputNumber = parseInt(event.target.value, 10);
   if (!Number.isNaN(inputNumber)) {
     if (inputNumber >= 0) {
       const temp = inputNumber;
