@@ -12,6 +12,10 @@ function handleInput(event) {
     resultDiv.textContent = 'Invalid number. Contains non-numeric characters.';
     resultDiv.classList.remove('text-success');
     resultDiv.classList.add('text-danger');
+  } else if (isNaN(input)) {
+    resultDiv.textContent = 'Please enter numbers only.';
+    resultDiv.classList.remove('text-success');
+    resultDiv.classList.add('text-danger');
   } else if (parseInt(input) < 0) {
     resultDiv.textContent = 'Please enter a positive number.';
     resultDiv.classList.remove('text-success');
@@ -27,6 +31,8 @@ function handleInput(event) {
   }
 }
 
+// this function could probably be simplified with a function approach
+// as seen online, but this works :)
 function isPalindrome(input) {
   let reversedInput = '';
   for (i = input.length - 1; i >= 0; i--) {
