@@ -10,7 +10,6 @@ function handleInput(event) {
   newP.textContent = " ";
   let inputNumber = parseInt(event.target.value);
   if (!isNaN(inputNumber)) {
-    console.log(inputNumber);
     if (inputNumber >= 0) {
       const temp = inputNumber;
       let reversed = 0;
@@ -22,14 +21,14 @@ function handleInput(event) {
 
       if (reversed == temp) {
         newP.style.color = "green";
-        newP.textContent = "It is a palindrome";
+        newP.textContent = "Yes. This is a palindrome";
       } else {
         newP.style.color = "red";
-        newP.textContent = "It is not a palindrome";
+        newP.textContent = "No. Try again.";
       }
     } else {
         newP.style.color = "red";
-        newP.textContent = "It is a not a positive number";
+        newP.textContent = "No. Try again.";
     }
   }else{
     newP.textContent = " ";
