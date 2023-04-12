@@ -8,12 +8,8 @@ function handleInput(event) {
 
   // isNaN doesn't work on Firefox if incorrect chars are entered.
   // this approach was suggested by Prof. Paun
-  if (input.length === 0) {
+  if (input.length === 0 || isNaN(input)) {
     resultDiv.textContent = 'Invalid number. Contains non-numeric characters.';
-    resultDiv.classList.remove('text-success');
-    resultDiv.classList.add('text-danger');
-  } else if (isNaN(input)) {
-    resultDiv.textContent = 'Please enter numbers only.';
     resultDiv.classList.remove('text-success');
     resultDiv.classList.add('text-danger');
   } else if (parseInt(input) < 0) {
