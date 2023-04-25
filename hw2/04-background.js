@@ -1,44 +1,61 @@
-// Add your code here
+// user input box
 let intervalInput = document.getElementById('TimerInterval');
 let body = document.querySelector('body');
 let interval = 3000;
+// timer controlling color switch
 let timerID;
 
-const GetRGBValue = () => { return Math.floor((Math.random() * (255 - 0) + 0));  }
+// Method: GetRGBValue
+// Purpose: returns a random number between 0 and 255 inclusive
+// Returns: valid Integer for RGB coloring.
+const GetRGBValue = () => {
+  return Math.floor(Math.random() * (255 - 0) + 0);
+};
 
+// Method: ChangeBGColor
+// Purpose: Uses the GetRGBValue method to change the color of the body
+//          elements background.
+// No return.
 const ChangeBGColor = () => {
-    body.style.backgroundColor = `rgba(${GetRGBValue()}, ${GetRGBValue()}, ${GetRGBValue()}, .7)`;
-}
+  body.style.backgroundColor = `rgba(${GetRGBValue()}, ${GetRGBValue()}, ${GetRGBValue()}, .3)`;
+};
 
-const SetInterval = () => 
-{ 
-    if(intervalInput.value === '') 
-    {
-        interval = 2000;
-    }
-    else {
-        interval = intervalInput.value * 1000;
-    }
-}
+// Method: SetInterval
+// Purpose: Uses the user input box to set the timer interval or if
+//          the box is empty defaults to 2000 ms
+// No return. Sets global interval variable
+const SetInterval = () => {
+  if (intervalInput.value === '') {
+    interval = 2000;
+  } else {
+    interval = intervalInput.value * 1000;
+  }
+};
 
+// Method: StartStopColors
+// Purpose: This is the button click event handler
+//          invokes appropriate methods to trigger color change
+//          or stop the color change all together.
+// No return.
 function StartStopColors() {
-    let button = document.querySelector('button');
-    button.textContent = button.textContent === 'Stop' ? 'Start' : 'Stop';
+  // Get button from dom
+  let button = document.querySelector('button');
+  // Set button value
+  button.textContent = button.textContent === 'Stop' ? 'Start' : 'Stop';
 
-    SetInterval();
+  // Get new interval or set default
+  SetInterval();
 
-    if (button.textContent === 'Start') {
-        clearInterval(timerID);
-    }
-    else {
-        timerID = setInterval(ChangeBGColor, interval);
-    }
+  // if button is now start then animation should not be running
+  if (button.textContent === 'Start') {
+    clearInterval(timerID);
+  } else {
+    timerID = setInterval(ChangeBGColor, interval);
+  }
 }
 
-
+// on load set the interval and btton click events
 window.addEventListener('load', () => {
-    timerID = setInterval(ChangeBGColor, interval);
-    document.querySelector('button').addEventListener('click', StartStopColors);
-    console.log('loaded');
+  timerID = setInterval(ChangeBGColor, interval);
+  document.querySelector('button').addEventListener('click', StartStopColors);
 });
-
