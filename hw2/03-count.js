@@ -7,6 +7,7 @@ function handleKeyUp(event) {
   const mainDiv = document.getElementById("text");
   const textVal = mainDiv.innerText;
   if (inputText.length > 0) {
+    // Found the regex from internet and with the help from a friend, I do not have url.
     let regexp = new RegExp(`\\b(${inputText})\\b`, "ig");
 
     updatedText = textVal.replace(
