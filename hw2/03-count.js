@@ -12,19 +12,25 @@ const text = document.querySelector('#TextContent').innerText;
 //          from the event rather than from the dom and then I need to eliminate some noise
 //          happening with empty events.
 function handleKeyDown(event) {
+
+  // ignoring shift key incase of caps
   if (event.key === 'Shift') return;
 
+  // user input
   let keyWord = document.querySelector('input').value;
 
+  // check if box is empty
   if (keyWord === '') {
     keyWord = event.key;
   }
+  // replace keywords with highlighted elements
   let textCopy = text;
   textCopy = textCopy.replaceAll(
     keyWord,
     `<span class="highlight">${keyWord}</span>`
   );
 
+  // set changes
   document.querySelector('#TextContent').innerHTML = textCopy;
 }
 

@@ -54,6 +54,7 @@ function StartStopColors() {
   }
 }
 
+ChangeBGColor();
 // on load set the interval and btton click events
 window.addEventListener('load', () => {
   timerID = setInterval(ChangeBGColor, interval);
