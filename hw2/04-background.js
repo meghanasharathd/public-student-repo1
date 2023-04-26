@@ -54,6 +54,7 @@ function StartStopColors() {
   }
 }
 
+// want screen to default to not white
 ChangeBGColor();
 // on load set the interval and btton click events
 window.addEventListener('load', () => {
