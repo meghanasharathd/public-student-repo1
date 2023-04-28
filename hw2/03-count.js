@@ -4,11 +4,11 @@ const input = document.getElementById('input');
 function handleKeyUp(event) {
   const inputText = event.target.value;
 
-  const mainDiv = document.getElementById("text");
+  const mainDiv = document.getElementById('text');
   const textVal = mainDiv.innerText;
   if (inputText.length > 0) {
     // Found the regex from internet and with the help from a friend, I do not have the url.
-    let regexp = new RegExp(`\\b(${inputText})\\b`, "ig");
+    const regexp = new RegExp(`\\b(${inputText})\\b`, 'ig');
 
     updatedText = textVal.replace(
       regexp,
