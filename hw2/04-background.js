@@ -2,19 +2,12 @@
 const btn = document.getElementById('control');
 let intervalTime = document.getElementById('intervalTime');
 let nIntervId;
-//function from:
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
-}
 
 function changeColor() {
   const background = document.querySelector('body');
-  const red = getRandomInt(0, 255);
-  const blue = getRandomInt(0, 255);
-  const green = getRandomInt(0, 255);
+  const red = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
   background.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, 0.5)`;
 }
 
@@ -24,14 +17,14 @@ function startIntervals(sec) {
     nIntervId = setInterval(changeColor, time);
   }
   btn.textContent = 'Stop';
-  btn.style.backgroundColor = 'red';
+  btn.classList = 'col-3 btn btn-danger my-3';
 }
 
 function stopIntervals() {
   clearInterval(nIntervId);
   nIntervId = null;
   btn.textContent = 'Start';
-  btn.style.backgroundColor = 'blue';
+  btn.classList = 'col-3 btn btn-primary my-3';
 }
 
 startIntervals(3);
