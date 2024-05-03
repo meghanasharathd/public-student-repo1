@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>02 - Search</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css">
     <script defer src="02-data.js"></script>
     <script defer src="02-search.js"></script>
   </head>
@@ -14,10 +13,14 @@
     <main>
       <h1>Exercise 02 - Search</h1>
       <div>
-        <label for="userInput">Search: </label>
+        <label for="userInput"></label>
         <input type="text" id="userInput" />
-        <input type="button" value="Search Character: " />
+        <button  id = "characterButton" value="Search Character: ">Search Character:</button>
       </div>
+      <div class="d-block">
+      <div id="characterCards" class="row">
+      </div>
+    </div>
     </main>
   </body>
 </html>
