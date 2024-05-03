@@ -1,3 +1,7 @@
+characterCards
+
+
+
 function renderCharacterCards(characters) {
     const characterCardsContainer = document.getElementById('characterCards');
     characterCardsContainer.innerHTML = ''; 
@@ -42,19 +46,18 @@ function renderCharacterCards(characters) {
   renderCharacterCards(characters);
   
   //handles the onlcick function
-  function handleClick() {
+  document.getElementById('characterButton').addEventListener('input', function(){
+  
     const userInput = document.getElementById('userInput').value;
     const filteredCharacters = characters.filter(character => {
       return character.name.toLowerCase().includes(userInput.toLowerCase());
       
     });
-  
+  });
     renderCharacterCards(filteredCharacters);
-  }
+  
 
   document.getElementById('userInput').addEventListener('input', function() {
     const characterCardsContainer = document.getElementById('characterCards');
     characterCardsContainer.innerHTML = ''; // Clear existing content
-
   });
-  

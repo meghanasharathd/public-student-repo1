@@ -1,6 +1,6 @@
 // Add your code here
 
-document.getElementById('userInput').addEventListener('input', function() {
+    const originalText = document.getElementById('userInput').addEventListener('input', function() {
     const userInput = this.value.trim().toLowerCase();
     const textToHighlight = document.getElementById('textToHighlight');
     const text = textToHighlight.textContent.toLowerCase();
